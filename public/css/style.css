@@ -1,0 +1,10 @@
+.emoji-list
+{
+  font-size: 24px;
+  width: 45%;
+}
+
+.emoji-list a
+{
+  cursor: pointer;
+}
