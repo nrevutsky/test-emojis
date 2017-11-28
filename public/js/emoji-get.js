@@ -4,10 +4,10 @@ $(document).ready(function(){
       method: "GET",
       url: '/emoji',
       datatype: 'json',
-      data: {timestamp:timestamp},
+      data: {id:id},
       success: function (response) {
         if (response.status == 'ok') {
-          timestamp=response.timestamp;
+          id=response.id;
           $(response.phrases).each(function(){
             $('.recent-data').append('<div>' + this + '</div>');
           });

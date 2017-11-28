@@ -7,7 +7,7 @@
     <link href="/css/style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var timestamp={{$timestamp}};
+        var id={{$id}};
     </script>
     <script src="/js/emoji-get.js" type="text/javascript"></script>
 </head>

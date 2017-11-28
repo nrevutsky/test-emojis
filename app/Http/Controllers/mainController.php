@@ -27,21 +27,27 @@ class mainController extends Controller
 	public function read(Request $request)
 	{
 		$model=new mainModel();
-		$phrases=$model->getNew($request->input('timestamp'));
-		$timestamp=time();
+		$id=$request->input('id');
+		$phrases=$model->getNew($id);
 		$new_phrases=[];
 		foreach ($phrases as $phrase)
 		{
 			$new_phrases[]=$phrase->text;
+			$id=$phrase->id;
 		}
-		return response()->json(['status'=>'ok','timestamp'=>$timestamp,'phrases'=>$new_phrases]);
+		return response()->json(['status'=>'ok','id'=>$id,'phrases'=>$new_phrases]);
 	}
 
 	public function output ()
 	{
 		$model=new mainModel();
 		$phrases=$model->orderBy('created_at','ASC')->get();
-		return view('pages.output')->with(['phrases'=>$phrases,'timestamp'=>time()]);
+		$id=0;
+		foreach ($phrases as $phrase)
+		{
+			$id=$phrase->id;
+		}
+		return view('pages.output')->with(['phrases'=>$phrases,'id'=>$id]);
 	}
 
 }
